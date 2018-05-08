@@ -1,0 +1,2445 @@
+{
+  "contractName": "Patent",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "patents",
+      "outputs": [
+        {
+          "name": "patentHash",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "author",
+          "type": "string"
+        },
+        {
+          "name": "date",
+          "type": "uint256"
+        },
+        {
+          "name": "patentType",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_hash",
+          "type": "string"
+        },
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_description",
+          "type": "string"
+        },
+        {
+          "name": "_author",
+          "type": "string"
+        },
+        {
+          "name": "_patentType",
+          "type": "uint8"
+        },
+        {
+          "name": "creator",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_to",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x606060405234156200001057600080fd5b60405162000ca238038062000ca283398101604052808051820191906020018051820191906020018051820191906020018051820191906020018051906020019091908051906020019091905050620000686200023e565b81600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515620000e657806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555062000127565b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5060c0604051908101604052808881526020018781526020018681526020018581526020014281526020018460ff1681525090506001805480600101828162000171919062000298565b916000526020600020906006020160008390919091506000820151816000019080519060200190620001a5929190620002cd565b506020820151816001019080519060200190620001c4929190620002cd565b506040820151816002019080519060200190620001e3929190620002cd565b50606082015181600301908051906020019062000202929190620002cd565b506080820151816004015560a08201518160050160006101000a81548160ff021916908360ff1602179055505050505050505050505062000462565b60c0604051908101604052806200025462000354565b81526020016200026362000354565b81526020016200027262000354565b81526020016200028162000354565b815260200160008152602001600060ff1681525090565b815481835581811511620002c857600602816006028360005260206000209182019101620002c7919062000368565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106200031057805160ff191683800117855562000341565b8280016001018555821562000341579182015b828111156200034057825182559160200191906001019062000323565b5b509050620003509190620003ee565b5090565b602060405190810160405280600081525090565b620003eb91905b80821115620003e757600080820160006200038b919062000416565b6001820160006200039d919062000416565b600282016000620003af919062000416565b600382016000620003c1919062000416565b60048201600090556005820160006101000a81549060ff0219169055506006016200036f565b5090565b90565b6200041391905b808211156200040f576000816000905550600101620003f5565b5090565b90565b50805460018160011615610100020316600290046000825580601f106200043e57506200045f565b601f0160209004906000526020600020908101906200045e9190620003ee565b5b50565b61083080620004726000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632e1a7d4d146100645780638da5cb5b1461009f578063f2fde38b146100f4578063f422bc681461012d575b005b341561006f57600080fd5b6100856004808035906020019091905050610321565b604051808215151515815260200191505060405180910390f35b34156100aa57600080fd5b6100b261040e565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100ff57600080fd5b61012b600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610433565b005b341561013857600080fd5b61014e600480803590602001909190505061054c565b60405180806020018060200180602001806020018781526020018660ff1660ff16815260200185810385528b818151815260200191508051906020019080838360005b838110156101ac578082015181840152602081019050610191565b50505050905090810190601f1680156101d95780820380516001836020036101000a031916815260200191505b5085810384528a818151815260200191508051906020019080838360005b838110156102125780820151818401526020810190506101f7565b50505050905090810190601f16801561023f5780820380516001836020036101000a031916815260200191505b50858103835289818151815260200191508051906020019080838360005b8381101561027857808201518184015260208101905061025d565b50505050905090810190601f1680156102a55780820380516001836020036101000a031916815260200191505b50858103825288818151815260200191508051906020019080838360005b838110156102de5780820151818401526020810190506102c3565b50505050905090810190601f16801561030b5780820380516001836020036101000a031916815260200191505b509a505050505050505050505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561037e57600080fd5b3073ffffffffffffffffffffffffffffffffffffffff163182111515156103a457600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc839081150290604051600060405180830381858888f19350505050151561040557600080fd5b60019050919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561048e57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b60018181548110151561055b57fe5b9060005260206000209060060201600091509050806000018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156106075780601f106105dc57610100808354040283529160200191610607565b820191906000526020600020905b8154815290600101906020018083116105ea57829003601f168201915b505050505090806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156106a55780601f1061067a576101008083540402835291602001916106a5565b820191906000526020600020905b81548152906001019060200180831161068857829003601f168201915b505050505090806002018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156107435780601f1061071857610100808354040283529160200191610743565b820191906000526020600020905b81548152906001019060200180831161072657829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156107e15780601f106107b6576101008083540402835291602001916107e1565b820191906000526020600020905b8154815290600101906020018083116107c457829003601f168201915b5050505050908060040154908060050160009054906101000a900460ff169050865600a165627a7a7230582018754d14f30f5d69a33dc5c57124a487971954c7be2345343b47609f677ad2bb0029",
+  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632e1a7d4d146100645780638da5cb5b1461009f578063f2fde38b146100f4578063f422bc681461012d575b005b341561006f57600080fd5b6100856004808035906020019091905050610321565b604051808215151515815260200191505060405180910390f35b34156100aa57600080fd5b6100b261040e565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100ff57600080fd5b61012b600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610433565b005b341561013857600080fd5b61014e600480803590602001909190505061054c565b60405180806020018060200180602001806020018781526020018660ff1660ff16815260200185810385528b818151815260200191508051906020019080838360005b838110156101ac578082015181840152602081019050610191565b50505050905090810190601f1680156101d95780820380516001836020036101000a031916815260200191505b5085810384528a818151815260200191508051906020019080838360005b838110156102125780820151818401526020810190506101f7565b50505050905090810190601f16801561023f5780820380516001836020036101000a031916815260200191505b50858103835289818151815260200191508051906020019080838360005b8381101561027857808201518184015260208101905061025d565b50505050905090810190601f1680156102a55780820380516001836020036101000a031916815260200191505b50858103825288818151815260200191508051906020019080838360005b838110156102de5780820151818401526020810190506102c3565b50505050905090810190601f16801561030b5780820380516001836020036101000a031916815260200191505b509a505050505050505050505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561037e57600080fd5b3073ffffffffffffffffffffffffffffffffffffffff163182111515156103a457600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc839081150290604051600060405180830381858888f19350505050151561040557600080fd5b60019050919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561048e57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b60018181548110151561055b57fe5b9060005260206000209060060201600091509050806000018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156106075780601f106105dc57610100808354040283529160200191610607565b820191906000526020600020905b8154815290600101906020018083116105ea57829003601f168201915b505050505090806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156106a55780601f1061067a576101008083540402835291602001916106a5565b820191906000526020600020905b81548152906001019060200180831161068857829003601f168201915b505050505090806002018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156107435780601f1061071857610100808354040283529160200191610743565b820191906000526020600020905b81548152906001019060200180831161072657829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156107e15780601f106107b6576101008083540402835291602001916107e1565b820191906000526020600020905b8154815290600101906020018083116107c457829003601f168201915b5050505050908060040154908060050160009054906101000a900460ff169050865600a165627a7a7230582018754d14f30f5d69a33dc5c57124a487971954c7be2345343b47609f677ad2bb0029",
+  "sourceMap": "505:1219:32:-;;;776:485;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;980:27;;:::i;:::-;960:7;361:1:31;337:26;;:12;:26;;;;333:114;;;383:12;375:5;;:20;;;;;;;;;;;;;;;;;;333:114;;;428:10;420:5;;:18;;;;;;;;;;;;;;;;;;333:114;281:170;1010:210:32;;;;;;;;;1047:5;1010:210;;;;1072:5;1010:210;;;;1104:12;1010:210;;;;1138:7;1010:210;;;;1165:3;1010:210;;;;1194:11;1010:210;;;;;980:240;;1231:7;:23;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;1244:9;1231:23;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;776:485;;;;;;;505:1219;;;;;;;;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "505:1219:32:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1267:173;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;46:20:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;698:137;;;;;;;;;;;;;;;;;;;;;;;;;;;;742:27:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;742:27:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;742:27:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;742:27:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;742:27:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1267:173;1323:4;578:5:31;;;;;;;;;;;564:19;;:10;:19;;;556:28;;;;;;;;1365:4:32;1357:21;;;1347:6;:31;;1339:40;;;;;;;;1389:5;;;;;;;;;;;:14;;:22;1404:6;1389:22;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1428:4;1421:11;;1267:173;;;:::o;46:20:31:-;;;;;;;;;;;;;:::o;698:137::-;578:5;;;;;;;;;;;564:19;;:10;:19;;;556:28;;;;;;;;799:8;771:37;;792:5;;;;;;;;;;;771:37;;;;;;;;;;;;822:8;814:5;;:16;;;;;;;;;;;;;;;;;;698:137;:::o;742:27:32:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.2;\n\n/*\n\nContract Patent is used by main contract to create new patents (ideas).\nIt has array of created patents and patent constructor.\nContract owner can withdraw funds from contract.\n\n*/\nimport \"contracts/ownership/Owned.sol\";\nimport \"contracts/math/SafeMath.sol\";\n/* import \"./ERC20.sol\"; */\n\n\n/**\n*Contract Patent is used by main contract to create new patents (ideas).\n*It has array of created patents and patent constructor.\n*Contract owner can withdraw funds from contract.\n*/\ncontract Patent is Owned {\n\n    using SafeMath for uint;\n\n    struct patentInfo {\n        string patentHash;\n        string name;\n        string description;\n        string author;\n        uint date;\n        uint8 patentType;\n    }\n\n    patentInfo[] public patents;\n\n    function Patent(\n        string _hash,\n        string _name,\n        string _description,\n        string _author,\n        uint8 _patentType,\n        address creator\n    ) public Owned(creator) {\n\n        patentInfo memory newPatent = patentInfo({\n            patentHash: _hash,\n            name: _name,\n            description: _description,\n            author: _author,\n            date: now,\n            patentType: _patentType\n            });\n\n        patents.push(newPatent);\n    }\n\n    function withdraw(uint amount) onlyOwner public returns(bool) {\n        require(amount <= address(this).balance);\n        owner.transfer(amount);\n        return true;\n\n    }\n\n\n    //      COMMENTED AS NOT NEEDED - YOU WILL NEED TO CHECK AND SHOW VAULT BALANCE\n    //    function getBalance() public view returns(uint){\n    //        return address(this).balance;\n    //    }\n\n\n    /**\n    * Fallback function\n    */\n    function () public payable {\n    }\n\n}",
+  "sourcePath": "contracts/patent/Patent.sol",
+  "ast": {
+    "absolutePath": "contracts/patent/Patent.sol",
+    "exportedSymbols": {
+      "Patent": [
+        3501
+      ]
+    },
+    "id": 3502,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3410,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:32"
+      },
+      {
+        "absolutePath": "contracts/ownership/Owned.sol",
+        "file": "contracts/ownership/Owned.sol",
+        "id": 3411,
+        "nodeType": "ImportDirective",
+        "scope": 3502,
+        "sourceUnit": 3409,
+        "src": "210:39:32",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/math/SafeMath.sol",
+        "file": "contracts/math/SafeMath.sol",
+        "id": 3412,
+        "nodeType": "ImportDirective",
+        "scope": 3502,
+        "sourceUnit": 3273,
+        "src": "250:37:32",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 3413,
+              "name": "Owned",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3408,
+              "src": "524:5:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Owned_$3408",
+                "typeString": "contract Owned"
+              }
+            },
+            "id": 3414,
+            "nodeType": "InheritanceSpecifier",
+            "src": "524:5:32"
+          }
+        ],
+        "contractDependencies": [
+          3408
+        ],
+        "contractKind": "contract",
+        "documentation": "ontract Patent is used by main contract to create new patents (ideas).\nt has array of created patents and patent constructor.\nontract owner can withdraw funds from contract.",
+        "fullyImplemented": true,
+        "id": 3501,
+        "linearizedBaseContracts": [
+          3501,
+          3408
+        ],
+        "name": "Patent",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 3417,
+            "libraryName": {
+              "contractScope": null,
+              "id": 3415,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3272,
+              "src": "543:8:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$3272",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "537:24:32",
+            "typeName": {
+              "id": 3416,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "556:4:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "canonicalName": "Patent.patentInfo",
+            "id": 3430,
+            "members": [
+              {
+                "constant": false,
+                "id": 3419,
+                "name": "patentHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "595:17:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string storage pointer"
+                },
+                "typeName": {
+                  "id": 3418,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "595:6:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string storage pointer"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3421,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "622:11:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string storage pointer"
+                },
+                "typeName": {
+                  "id": 3420,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "622:6:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string storage pointer"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3423,
+                "name": "description",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "643:18:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string storage pointer"
+                },
+                "typeName": {
+                  "id": 3422,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "643:6:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string storage pointer"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3425,
+                "name": "author",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "671:13:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string storage pointer"
+                },
+                "typeName": {
+                  "id": 3424,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "671:6:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string storage pointer"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3427,
+                "name": "date",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "694:9:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3426,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "694:4:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3429,
+                "name": "patentType",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "713:16:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 3428,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "713:5:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "patentInfo",
+            "nodeType": "StructDefinition",
+            "scope": 3501,
+            "src": "567:169:32",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 3433,
+            "name": "patents",
+            "nodeType": "VariableDeclaration",
+            "scope": 3501,
+            "src": "742:27:32",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_patentInfo_$3430_storage_$dyn_storage",
+              "typeString": "struct Patent.patentInfo storage ref[] storage ref"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 3431,
+                "name": "patentInfo",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 3430,
+                "src": "742:10:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_patentInfo_$3430_storage_ptr",
+                  "typeString": "struct Patent.patentInfo storage pointer"
+                }
+              },
+              "id": 3432,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "742:12:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_patentInfo_$3430_storage_$dyn_storage_ptr",
+                "typeString": "struct Patent.patentInfo storage ref[] storage pointer"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3468,
+              "nodeType": "Block",
+              "src": "969:292:32",
+              "statements": [
+                {
+                  "assignments": [
+                    3452
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3452,
+                      "name": "newPatent",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 3469,
+                      "src": "980:27:32",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_patentInfo_$3430_memory_ptr",
+                        "typeString": "struct Patent.patentInfo memory"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 3451,
+                        "name": "patentInfo",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 3430,
+                        "src": "980:10:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_patentInfo_$3430_storage_ptr",
+                          "typeString": "struct Patent.patentInfo storage pointer"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3461,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3454,
+                        "name": "_hash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3435,
+                        "src": "1047:5:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3455,
+                        "name": "_name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3437,
+                        "src": "1072:5:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3456,
+                        "name": "_description",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3439,
+                        "src": "1104:12:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3457,
+                        "name": "_author",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3441,
+                        "src": "1138:7:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3458,
+                        "name": "now",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4219,
+                        "src": "1165:3:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3459,
+                        "name": "_patentType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3443,
+                        "src": "1194:11:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint8",
+                          "typeString": "uint8"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 3453,
+                      "name": "patentInfo",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3430,
+                      "src": "1010:10:32",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_patentInfo_$3430_storage_ptr_$",
+                        "typeString": "type(struct Patent.patentInfo storage pointer)"
+                      }
+                    },
+                    "id": 3460,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [
+                      "patentHash",
+                      "name",
+                      "description",
+                      "author",
+                      "date",
+                      "patentType"
+                    ],
+                    "nodeType": "FunctionCall",
+                    "src": "1010:210:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_patentInfo_$3430_memory",
+                      "typeString": "struct Patent.patentInfo memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "980:240:32"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3465,
+                        "name": "newPatent",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3452,
+                        "src": "1244:9:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_patentInfo_$3430_memory_ptr",
+                          "typeString": "struct Patent.patentInfo memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_patentInfo_$3430_memory_ptr",
+                          "typeString": "struct Patent.patentInfo memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 3462,
+                        "name": "patents",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3433,
+                        "src": "1231:7:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_patentInfo_$3430_storage_$dyn_storage",
+                          "typeString": "struct Patent.patentInfo storage ref[] storage ref"
+                        }
+                      },
+                      "id": 3464,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1231:12:32",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_patentInfo_$3430_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct Patent.patentInfo storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 3466,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1231:23:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 3467,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1231:23:32"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3469,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 3448,
+                    "name": "creator",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3445,
+                    "src": "960:7:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 3449,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 3447,
+                  "name": "Owned",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3408,
+                  "src": "954:5:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_Owned_$3408_$",
+                    "typeString": "type(contract Owned)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "954:14:32"
+              }
+            ],
+            "name": "Patent",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3446,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3435,
+                  "name": "_hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "801:12:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string memory"
+                  },
+                  "typeName": {
+                    "id": 3434,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "801:6:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string storage pointer"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3437,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "823:12:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string memory"
+                  },
+                  "typeName": {
+                    "id": 3436,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "823:6:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string storage pointer"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3439,
+                  "name": "_description",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "845:19:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string memory"
+                  },
+                  "typeName": {
+                    "id": 3438,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "845:6:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string storage pointer"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3441,
+                  "name": "_author",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "874:14:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string memory"
+                  },
+                  "typeName": {
+                    "id": 3440,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "874:6:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string storage pointer"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3443,
+                  "name": "_patentType",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "898:17:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 3442,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "898:5:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3445,
+                  "name": "creator",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "925:15:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3444,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "925:7:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "791:155:32"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3450,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "969:0:32"
+            },
+            "scope": 3501,
+            "src": "776:485:32",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3495,
+              "nodeType": "Block",
+              "src": "1329:111:32",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 3484,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 3479,
+                          "name": "amount",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3471,
+                          "src": "1347:6:32",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "arguments": [
+                              {
+                                "argumentTypes": null,
+                                "id": 3481,
+                                "name": "this",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 4234,
+                                "src": "1365:4:32",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_contract$_Patent_$3501",
+                                  "typeString": "contract Patent"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_contract$_Patent_$3501",
+                                  "typeString": "contract Patent"
+                                }
+                              ],
+                              "id": 3480,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "nodeType": "ElementaryTypeNameExpression",
+                              "src": "1357:7:32",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_address_$",
+                                "typeString": "type(address)"
+                              },
+                              "typeName": "address"
+                            },
+                            "id": 3482,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "typeConversion",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "1357:13:32",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "id": 3483,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "balance",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "1357:21:32",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "1347:31:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 3478,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4220,
+                      "src": "1339:7:32",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 3485,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1339:40:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3486,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1339:40:32"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3490,
+                        "name": "amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3471,
+                        "src": "1404:6:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 3487,
+                        "name": "owner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3350,
+                        "src": "1389:5:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "id": 3489,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transfer",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1389:14:32",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 3491,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1389:22:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3492,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1389:22:32"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 3493,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1428:4:32",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 3477,
+                  "id": 3494,
+                  "nodeType": "Return",
+                  "src": "1421:11:32"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3496,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 3474,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 3473,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3390,
+                  "src": "1298:9:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1298:9:32"
+              }
+            ],
+            "name": "withdraw",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3472,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3471,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3496,
+                  "src": "1285:11:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3470,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1285:4:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1284:13:32"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3477,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3476,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3496,
+                  "src": "1323:4:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 3475,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1323:4:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1322:6:32"
+            },
+            "scope": 3501,
+            "src": "1267:173:32",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3499,
+              "nodeType": "Block",
+              "src": "1714:7:32",
+              "statements": []
+            },
+            "documentation": "Fallback function",
+            "id": 3500,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3497,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1696:2:32"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 3498,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1714:0:32"
+            },
+            "scope": 3501,
+            "src": "1687:34:32",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3502,
+        "src": "505:1219:32"
+      }
+    ],
+    "src": "0:1724:32"
+  },
+  "legacyAST": {
+    "absolutePath": "contracts/patent/Patent.sol",
+    "exportedSymbols": {
+      "Patent": [
+        3501
+      ]
+    },
+    "id": 3502,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3410,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:32"
+      },
+      {
+        "absolutePath": "contracts/ownership/Owned.sol",
+        "file": "contracts/ownership/Owned.sol",
+        "id": 3411,
+        "nodeType": "ImportDirective",
+        "scope": 3502,
+        "sourceUnit": 3409,
+        "src": "210:39:32",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/math/SafeMath.sol",
+        "file": "contracts/math/SafeMath.sol",
+        "id": 3412,
+        "nodeType": "ImportDirective",
+        "scope": 3502,
+        "sourceUnit": 3273,
+        "src": "250:37:32",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 3413,
+              "name": "Owned",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3408,
+              "src": "524:5:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Owned_$3408",
+                "typeString": "contract Owned"
+              }
+            },
+            "id": 3414,
+            "nodeType": "InheritanceSpecifier",
+            "src": "524:5:32"
+          }
+        ],
+        "contractDependencies": [
+          3408
+        ],
+        "contractKind": "contract",
+        "documentation": "ontract Patent is used by main contract to create new patents (ideas).\nt has array of created patents and patent constructor.\nontract owner can withdraw funds from contract.",
+        "fullyImplemented": true,
+        "id": 3501,
+        "linearizedBaseContracts": [
+          3501,
+          3408
+        ],
+        "name": "Patent",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 3417,
+            "libraryName": {
+              "contractScope": null,
+              "id": 3415,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3272,
+              "src": "543:8:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$3272",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "537:24:32",
+            "typeName": {
+              "id": 3416,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "556:4:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "canonicalName": "Patent.patentInfo",
+            "id": 3430,
+            "members": [
+              {
+                "constant": false,
+                "id": 3419,
+                "name": "patentHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "595:17:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string storage pointer"
+                },
+                "typeName": {
+                  "id": 3418,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "595:6:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string storage pointer"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3421,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "622:11:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string storage pointer"
+                },
+                "typeName": {
+                  "id": 3420,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "622:6:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string storage pointer"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3423,
+                "name": "description",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "643:18:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string storage pointer"
+                },
+                "typeName": {
+                  "id": 3422,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "643:6:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string storage pointer"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3425,
+                "name": "author",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "671:13:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string storage pointer"
+                },
+                "typeName": {
+                  "id": 3424,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "671:6:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string storage pointer"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3427,
+                "name": "date",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "694:9:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3426,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "694:4:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3429,
+                "name": "patentType",
+                "nodeType": "VariableDeclaration",
+                "scope": 3430,
+                "src": "713:16:32",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 3428,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "713:5:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "patentInfo",
+            "nodeType": "StructDefinition",
+            "scope": 3501,
+            "src": "567:169:32",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 3433,
+            "name": "patents",
+            "nodeType": "VariableDeclaration",
+            "scope": 3501,
+            "src": "742:27:32",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_patentInfo_$3430_storage_$dyn_storage",
+              "typeString": "struct Patent.patentInfo storage ref[] storage ref"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 3431,
+                "name": "patentInfo",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 3430,
+                "src": "742:10:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_patentInfo_$3430_storage_ptr",
+                  "typeString": "struct Patent.patentInfo storage pointer"
+                }
+              },
+              "id": 3432,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "742:12:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_patentInfo_$3430_storage_$dyn_storage_ptr",
+                "typeString": "struct Patent.patentInfo storage ref[] storage pointer"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3468,
+              "nodeType": "Block",
+              "src": "969:292:32",
+              "statements": [
+                {
+                  "assignments": [
+                    3452
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3452,
+                      "name": "newPatent",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 3469,
+                      "src": "980:27:32",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_patentInfo_$3430_memory_ptr",
+                        "typeString": "struct Patent.patentInfo memory"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 3451,
+                        "name": "patentInfo",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 3430,
+                        "src": "980:10:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_patentInfo_$3430_storage_ptr",
+                          "typeString": "struct Patent.patentInfo storage pointer"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3461,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3454,
+                        "name": "_hash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3435,
+                        "src": "1047:5:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3455,
+                        "name": "_name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3437,
+                        "src": "1072:5:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3456,
+                        "name": "_description",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3439,
+                        "src": "1104:12:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3457,
+                        "name": "_author",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3441,
+                        "src": "1138:7:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3458,
+                        "name": "now",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4219,
+                        "src": "1165:3:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3459,
+                        "name": "_patentType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3443,
+                        "src": "1194:11:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint8",
+                          "typeString": "uint8"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 3453,
+                      "name": "patentInfo",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3430,
+                      "src": "1010:10:32",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_patentInfo_$3430_storage_ptr_$",
+                        "typeString": "type(struct Patent.patentInfo storage pointer)"
+                      }
+                    },
+                    "id": 3460,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [
+                      "patentHash",
+                      "name",
+                      "description",
+                      "author",
+                      "date",
+                      "patentType"
+                    ],
+                    "nodeType": "FunctionCall",
+                    "src": "1010:210:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_patentInfo_$3430_memory",
+                      "typeString": "struct Patent.patentInfo memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "980:240:32"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3465,
+                        "name": "newPatent",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3452,
+                        "src": "1244:9:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_patentInfo_$3430_memory_ptr",
+                          "typeString": "struct Patent.patentInfo memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_patentInfo_$3430_memory_ptr",
+                          "typeString": "struct Patent.patentInfo memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 3462,
+                        "name": "patents",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3433,
+                        "src": "1231:7:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_patentInfo_$3430_storage_$dyn_storage",
+                          "typeString": "struct Patent.patentInfo storage ref[] storage ref"
+                        }
+                      },
+                      "id": 3464,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1231:12:32",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_patentInfo_$3430_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct Patent.patentInfo storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 3466,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1231:23:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 3467,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1231:23:32"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3469,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 3448,
+                    "name": "creator",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3445,
+                    "src": "960:7:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 3449,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 3447,
+                  "name": "Owned",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3408,
+                  "src": "954:5:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_Owned_$3408_$",
+                    "typeString": "type(contract Owned)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "954:14:32"
+              }
+            ],
+            "name": "Patent",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3446,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3435,
+                  "name": "_hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "801:12:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string memory"
+                  },
+                  "typeName": {
+                    "id": 3434,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "801:6:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string storage pointer"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3437,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "823:12:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string memory"
+                  },
+                  "typeName": {
+                    "id": 3436,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "823:6:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string storage pointer"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3439,
+                  "name": "_description",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "845:19:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string memory"
+                  },
+                  "typeName": {
+                    "id": 3438,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "845:6:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string storage pointer"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3441,
+                  "name": "_author",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "874:14:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string memory"
+                  },
+                  "typeName": {
+                    "id": 3440,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "874:6:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string storage pointer"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3443,
+                  "name": "_patentType",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "898:17:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 3442,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "898:5:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3445,
+                  "name": "creator",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3469,
+                  "src": "925:15:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3444,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "925:7:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "791:155:32"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3450,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "969:0:32"
+            },
+            "scope": 3501,
+            "src": "776:485:32",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3495,
+              "nodeType": "Block",
+              "src": "1329:111:32",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 3484,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 3479,
+                          "name": "amount",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3471,
+                          "src": "1347:6:32",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "arguments": [
+                              {
+                                "argumentTypes": null,
+                                "id": 3481,
+                                "name": "this",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 4234,
+                                "src": "1365:4:32",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_contract$_Patent_$3501",
+                                  "typeString": "contract Patent"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_contract$_Patent_$3501",
+                                  "typeString": "contract Patent"
+                                }
+                              ],
+                              "id": 3480,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "nodeType": "ElementaryTypeNameExpression",
+                              "src": "1357:7:32",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_address_$",
+                                "typeString": "type(address)"
+                              },
+                              "typeName": "address"
+                            },
+                            "id": 3482,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "typeConversion",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "1357:13:32",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "id": 3483,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "balance",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "1357:21:32",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "1347:31:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 3478,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4220,
+                      "src": "1339:7:32",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 3485,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1339:40:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3486,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1339:40:32"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3490,
+                        "name": "amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3471,
+                        "src": "1404:6:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 3487,
+                        "name": "owner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3350,
+                        "src": "1389:5:32",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "id": 3489,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transfer",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1389:14:32",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 3491,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1389:22:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3492,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1389:22:32"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 3493,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1428:4:32",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 3477,
+                  "id": 3494,
+                  "nodeType": "Return",
+                  "src": "1421:11:32"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3496,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 3474,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 3473,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3390,
+                  "src": "1298:9:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1298:9:32"
+              }
+            ],
+            "name": "withdraw",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3472,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3471,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3496,
+                  "src": "1285:11:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3470,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1285:4:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1284:13:32"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3477,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3476,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3496,
+                  "src": "1323:4:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 3475,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1323:4:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1322:6:32"
+            },
+            "scope": 3501,
+            "src": "1267:173:32",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3499,
+              "nodeType": "Block",
+              "src": "1714:7:32",
+              "statements": []
+            },
+            "documentation": "Fallback function",
+            "id": 3500,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3497,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1696:2:32"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 3498,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1714:0:32"
+            },
+            "scope": 3501,
+            "src": "1687:34:32",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3502,
+        "src": "505:1219:32"
+      }
+    ],
+    "src": "0:1724:32"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-04-04T22:14:18.461Z"
+}

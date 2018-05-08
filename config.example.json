@@ -1,0 +1,4 @@
+module export = {
+    "providerUrl": "https://ropsten.infura.io/rV54nL613iSexjTXY1XG",
+    "mnemonic": "",
+}

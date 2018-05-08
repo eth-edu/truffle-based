@@ -1,0 +1,28 @@
+### Contract Examples
+
+just an example (with some basical predefined info) of crowdsale contarcts
+
+- Post-delivered crowdsale
+- Refundable crowdsale with vault contract to collect all money
+- Defined hard and soft cap
+- Timed
+- Whitelisted
+- With a regular ERC20 demo token
+- Based on zeppelin contracts adopted on another project and cleared before publishing
+- Can be compiled and deployed with truffle
+
+***
+***
+Contract structure
+***
+***
+
+/crowdsale - contains logic of the crowdsale
+
+/math - implements SafeMath library to avoid uint overflows
+
+/ownership - implements abilities to control and transfer contract's ownership
+
+/migrations - contains scripts for contract compiling and deploy
+
+/token - contains main logic for token and extends ERC20 standard
