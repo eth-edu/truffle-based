@@ -6,6 +6,8 @@ yarn-error.log*
 /test/unit/coverage/
 
 config.json
+build/
+
 
 # Editor directories and files
 .idea
