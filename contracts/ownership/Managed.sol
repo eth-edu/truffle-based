@@ -1,6 +1,6 @@
 pragma solidity ^0.4.21;
 
-import "contracts/ownership/Owned.sol";
+import "./Owned.sol";
 
 contract Managed is Owned {
 

@@ -1,8 +1,8 @@
 pragma solidity ^0.4.21;
 
-import "contracts/crowdsale/TimedCrowdsale.sol";
-import "contracts/token/ERC20.sol";
-import "contracts/math/SafeMath.sol";
+import "./TimedCrowdsale.sol";
+import "../token/ERC20.sol";
+import "../math/SafeMath.sol";
 
 /**
  * @title PostDeliveryCrowdsale

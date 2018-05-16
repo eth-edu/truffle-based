@@ -1,7 +1,7 @@
 pragma solidity ^0.4.21;
 
-import "contracts/math/SafeMath.sol";
-import "contracts/crowdsale/Crowdsale.sol";
+import "../math/SafeMath.sol";
+import "./Crowdsale.sol";
 
 
 /**

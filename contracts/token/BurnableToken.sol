@@ -1,8 +1,8 @@
 pragma solidity ^0.4.21;
 
-import "contracts/token/BasicToken.sol";
-import "contracts/ownership/Owned.sol";
-import "contracts/math/SafeMath.sol";
+import "./BasicToken.sol";
+import "../ownership/Owned.sol";
+import "../math/SafeMath.sol";
 
 
 /**

@@ -1,8 +1,8 @@
 pragma solidity ^0.4.21;
 
-import "contracts/token/MintableToken.sol";
-import "contracts/token/BurnableToken.sol";
-import "contracts/math/SafeMath.sol";
+import "./token/MintableToken.sol";
+import "./token/BurnableToken.sol";
+import "./math/SafeMath.sol";
 
 
 /**

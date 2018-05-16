@@ -7,7 +7,7 @@ yarn-error.log*
 
 config.json
 build/
-
+package-lock.json
 
 # Editor directories and files
 .idea
@@ -16,3 +16,6 @@ build/
 *.ntvs*
 *.njsproj
 *.sln
+eth-demo.iml
+.editorconfig
+.eslintignore

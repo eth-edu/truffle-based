@@ -1,8 +1,8 @@
 pragma solidity ^0.4.21;
 
-import "contracts/math/SafeMath.sol";
-import "contracts/ownership/Owned.sol";
-import "contracts/crowdsale/TimedCrowdsale.sol";
+import "../math/SafeMath.sol";
+import "../ownership/Owned.sol";
+import "./TimedCrowdsale.sol";
 
 /**
  * @title FinalizableCrowdsale

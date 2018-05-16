@@ -1,8 +1,8 @@
 pragma solidity ^0.4.21;
 
 
-import "contracts/token/ERC20Basic.sol";
-import "contracts/math/SafeMath.sol";
+import "./ERC20Basic.sol";
+import "../math/SafeMath.sol";
 
 
 /**
