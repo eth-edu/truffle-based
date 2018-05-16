@@ -1,11 +1,11 @@
 pragma solidity ^0.4.21;
 
-import "contracts/crowdsale/PostDeliveryCrowdsale.sol";
-import "contracts/crowdsale/RefundableCrowdsale.sol";
-import "contracts/crowdsale/CappedCrowdsale.sol";
-import "contracts/DMT.sol";
-import "contracts/ownership/Owned.sol";
-import "contracts/crowdsale/WhitelistedCrowdsale.sol";
+import "./crowdsale/PostDeliveryCrowdsale.sol";
+import "./crowdsale/RefundableCrowdsale.sol";
+import "./crowdsale/CappedCrowdsale.sol";
+import "./DMT.sol";
+import "./ownership/Owned.sol";
+import "./crowdsale/WhitelistedCrowdsale.sol";
 
 
 contract DemoCrowdsale is PostDeliveryCrowdsale, RefundableCrowdsale, CappedCrowdsale, WhitelistedCrowdsale {

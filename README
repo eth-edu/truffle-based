@@ -26,3 +26,68 @@ Contract structure
 /migrations - contains scripts for contract compiling and deploy
 
 /token - contains main logic for token and extends ERC20 standard
+
+
+***
+***
+HOW TO BUILD AND MIGRATE(DEPLOY) ALL CONTRACTS USING TRUFFLE ON YOUR LOCAL MACHINE
+***
+***
+
+First of all, you will need npm/yarn and copied project locally.
+Your node should be already initiated, if it's not use:
+
+    npm init
+
+
+After that you have to install(don't forget about dependencies), also you can install it using '-g' to set it globally:
+
+    npm i --save  truffle solc mocha ganache-cli web3 truffle-hdwallet-provider
+
+
+Easiest way to work with truffle migrations is using Infura nodes, please request your account here:
+
+    https://infura.io/signup
+
+
+Once you get you Infura account you should create 'config.json' file which will contain your INfura URL and mnemonic phrase:
+
+    {
+      "providerUrl": "https://ropsten.infura.io/insert-your-key",
+      "mnemonic": "your 12 mnemonic words copypasted here"
+    }
+
+Once you done with 'config.json' save it in project root folder.
+
+
+After that you should be able to build contracts using truffle cli:
+
+    truffle compile
+
+    OR
+
+    truffle compile --all
+
+You probably will see any compilation warnings - no worries. Solidity is a young language and updates come faster than code refactors.
+If you see any errors - you have to check files which mentioned in error and fix the issue, often it's forgotten '(' or '}'.
+
+
+To migrate(deploy) your contracts to your local(development) network use:
+
+    truffle migrate
+
+    OR
+
+    truffle migrate --reset
+
+
+To migrate(deploy) your contracts to Ropsten network use:
+
+    truffle migrate --network ropsten
+
+    OR
+
+    truffle migrate --network ropsten --reset
+
+
+

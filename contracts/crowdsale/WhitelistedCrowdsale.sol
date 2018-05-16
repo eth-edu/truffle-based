@@ -1,7 +1,7 @@
 pragma solidity ^0.4.21;
 
-import "contracts/crowdsale/Crowdsale.sol";
-import "contracts/ownership/Owned.sol";
+import "./Crowdsale.sol";
+import "../ownership/Owned.sol";
 
 
 /**

@@ -1,0 +1,39 @@
+{
+  "name": "eth-demo",
+  "version": "1.0.0",
+  "description": "just an example (with some basical predefined info) of crowdsale contarcts",
+  "main": "truffle.js",
+  "dependencies": {
+    "ajv": "^6.5.0",
+    "ajv-keywords": "^3.2.0",
+    "babel-preset-env": "^1.7.0",
+    "fs-extra": "^6.0.1",
+    "ganache-cli": "^6.1.0",
+    "mocha": "^5.1.1",
+    "nomnom": "^1.8.1",
+    "npm": "^6.0.1",
+    "solc": "^0.4.21",
+    "tar": "^4.4.2",
+    "truffle": "^4.1.8",
+    "truffle-hdwallet-provider": "^0.0.5",
+    "truffle-resolver": "^4.0.3",
+    "web3": "^1.0.0-beta.34",
+    "web3-providers-http": "^1.0.0-beta.34",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eth-edu/truffle-based.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eth-edu/truffle-based/issues"
+  },
+  "homepage": "https://github.com/eth-edu/truffle-based#readme"
+}
