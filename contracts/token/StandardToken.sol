@@ -24,6 +24,7 @@ contract StandardToken is ERC20, BasicToken {
    */
   function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
     require(_to != address(0));
+    require(_to != address(this));
     require(_value <= balances[_from]);
     require(_value <= allowed[_from][msg.sender]);
 
